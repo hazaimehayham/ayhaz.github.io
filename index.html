@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Products - MedComfy Supply Haven</title>
+    <title>MedComfy Supply Haven - Medical Comfort Products</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -13,8 +14,8 @@
             <div class="flex items-center justify-between">
                 <a href="index.html" class="text-2xl font-bold text-blue-600">MedComfy</a>
                 <nav class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
-                    <a href="products.html" class="text-blue-600 font-medium">Products</a>
+                    <a href="index.html" class="text-blue-600 font-medium">Home</a>
+                    <a href="products.html" class="text-gray-600 hover:text-blue-600">Products</a>
                     <a href="about.html" class="text-gray-600 hover:text-blue-600">About</a>
                     <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact</a>
                 </nav>
@@ -30,128 +31,74 @@
     </header>
 
     <main class="container mx-auto px-6 py-12">
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-12">Medical Essentials</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Lab Coats -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="http://static.photos/medical/640x360/1" alt="Professional Lab Coats" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Professional Lab Coats</h3>
-                        <p class="text-gray-600 mb-4">High-quality, comfortable lab coats for medical professionals.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-blue-600 font-bold">$49.99</span>
-                        <button onclick="addToCart('${product.id}', '${product.name}', ${product.price}, '${product.image}')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-</div>
-                    </div>
-                </div>
+        <section class="hero bg-blue-50 rounded-xl p-12 mb-16 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-800 mb-6">Premium Medical Comfort Products</h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">High-quality lab coats, scrubs, bandages, and memory foam comfort products designed for healthcare professionals.</p>
+            <a href="products.html" class="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-blue-700">Shop Now</a>
+        </section>
 
-                <!-- Scrubs -->
+        <section class="featured mb-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Featured Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="http://static.photos/medical/640x360/2" alt="Medical Scrubs" class="w-full h-64 object-cover">
+                    <img src="http://static.photos/medical/640x360/7" alt="Medical Scrubs" class="w-full h-64 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Medical Scrubs</h3>
                         <p class="text-gray-600 mb-4">Comfortable and durable scrubs for healthcare workers.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-blue-600 font-bold">$39.99</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-                        </div>
                     </div>
                 </div>
-
-                <!-- Bandages -->
                 <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="http://static.photos/medical/640x360/3" alt="Bandages & Gauze" class="w-full h-64 object-cover">
+                    <img src="http://static.photos/medical/640x360/8" alt="Memory Foam Pillow" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Bandages & Gauze</h3>
-                        <p class="text-gray-600 mb-4">High-quality wound care products for medical use.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-blue-600 font-bold">$12.99</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Memory Foam Pillow</h3>
+                        <p class="text-gray-600 mb-4">Orthopedic support for better sleep and posture.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="http://static.photos/medical/640x360/9" alt="Medical Bandages" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Medical Bandages</h3>
+                        <p class="text-gray-600 mb-4">High-quality wound care products.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-12">Comfort Products</h2>
+        <section class="bg-blue-800 text-white rounded-xl p-12 text-center mb-16">
+            <h2 class="text-3xl font-bold mb-4">Why Choose MedComfy?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">We combine medical-grade quality with exceptional comfort for professionals who need both.</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Memory Foam Pillow -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="http://static.photos/medical/640x360/4" alt="Memory Foam Pillow" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Memory Foam Pillow</h3>
-                        <p class="text-gray-600 mb-4">Orthopedic support for better sleep and posture.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-blue-600 font-bold">$59.99</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-                        </div>
+                <div>
+                    <div class="bg-blue-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check text-2xl"></i>
                     </div>
+                    <h3 class="text-xl font-semibold mb-2">Premium Quality</h3>
+                    <p class="text-blue-200">Medical-grade materials that last</p>
                 </div>
-
-                <!-- Contour Pillow -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="http://static.photos/medical/640x360/5" alt="Contour Pillow" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Contour Pillow</h3>
-                        <p class="text-gray-600 mb-4">Ergonomic design for neck and back support.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-blue-600 font-bold">$49.99</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-                        </div>
+                <div>
+                    <div class="bg-blue-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-truck text-2xl"></i>
                     </div>
+                    <h3 class="text-xl font-semibold mb-2">Fast Shipping</h3>
+                    <p class="text-blue-200">Delivered to your door in 2-3 days</p>
                 </div>
-
-                <!-- Arm Rest -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="http://static.photos/medical/640x360/6" alt="Memory Foam Arm Rest" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Memory Foam Arm Rest</h3>
-                        <p class="text-gray-600 mb-4">Comfortable support for arms during procedures.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-blue-600 font-bold">$29.99</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-                        </div>
+                <div>
+                    <div class="bg-blue-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-2xl"></i>
                     </div>
+                    <h3 class="text-xl font-semibold mb-2">24/7 Support</h3>
+                    <p class="text-blue-200">Our team is always here to help</p>
                 </div>
             </div>
         </section>
     </main>
     <script>
-        // Product data
-        const products = {
-            'lab-coat': { id: 'lab-coat', name: 'Professional Lab Coats', price: 49.99, image: 'http://static.photos/medical/640x360/1' },
-            'scrubs': { id: 'scrubs', name: 'Medical Scrubs', price: 39.99, image: 'http://static.photos/medical/640x360/2' },
-            'bandages': { id: 'bandages', name: 'Bandages & Gauze', price: 12.99, image: 'http://static.photos/medical/640x360/3' },
-            'memory-pillow': { id: 'memory-pillow', name: 'Memory Foam Pillow', price: 59.99, image: 'http://static.photos/medical/640x360/4' },
-            'contour-pillow': { id: 'contour-pillow', name: 'Contour Pillow', price: 49.99, image: 'http://static.photos/medical/640x360/5' },
-            'arm-rest': { id: 'arm-rest', name: 'Memory Foam Arm Rest', price: 29.99, image: 'http://static.photos/medical/640x360/6' }
-        };
-
-        function addToCart(id, name, price, image) {
-            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-            const existingItem = cartItems.find(item => item.id === id);
-            
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cartItems.push({ id, name, price, image, quantity: 1 });
-            }
-            
-            localStorage.setItem('cart', JSON.stringify(cartItems));
-            updateCartCount();
-            alert(`${name} added to cart!`);
-        }
-
-        function updateCartCount() {
+        // Update cart count on page load
+        document.addEventListener('DOMContentLoaded', function() {
             const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
             const cartCount = document.getElementById('cart-count');
             cartCount.textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-        }
-
-        // Update cart count on page load
-        document.addEventListener('DOMContentLoaded', updateCartCount);
+        });
     </script>
 <footer class="bg-gray-800 text-white py-12">
         <div class="container mx-auto px-6">
@@ -161,28 +108,28 @@
                     <p class="text-gray-400">Quality medical and comfort products for professionals.</p>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Shop</h4>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Lab Coats</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Scrubs</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Bandages</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Company</h4>
-                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white">Products</a></li>
                         <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <h4 class="font-semibold mb-4">Customer Service</h4>
                     <ul class="space-y-2">
                         <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping Policy</a></li>
                     </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
