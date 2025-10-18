@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard - MedComfy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        function checkAuth() {
+            if(localStorage.getItem('adminLoggedIn') !== 'true' || localStorage.getItem('userRole') === 'admin') {
+                window.location.href = 'admin.html';
+            }
+        }
+        
+        function logout() {
+            localStorage.removeItem('adminLoggedIn');
+            localStorage.removeItem('userRole');
+            localStorage.removeItem('username');
+            window.location.href = 'admin.html';
+        }
+        
+        function loadOrders() {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const ordersContainer = document.getElementById('orders-container');
+            
+            if (orders.length === 0) {
+                ordersContainer.innerHTML = '<p class="text-center py-8">No orders found</p>';
+                return;
+            }
+            
+            ordersContainer.innerHTML = orders.map(order => `
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-bold">Order #${order.id}</h3>
+                            <p class="text-gray-600">${new Date(order.date).toLocaleString()}</p>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="px-3 py-1 rounded-full text-sm font-medium 
+                                ${order.status === 'Pending' ? 'bg-yellow-100 text-yellow-800' : 
+                                  order.status === 'Shipped' ? 'bg-blue-100 text-blue-800' : 
+                                  'bg-green-100 text-green-800'}">
+                                ${order.status}
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-4">
+                        <div>
+                            <h4 class="font-semibold mb-2">Customer</h4>
+                            <p>${order.customer.name}</p>
+                            <p>${order.customer.email}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Shipping</h4>
+                            <p>${order.customer.address}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Payment</h4>
+                            <p>${order.payment.charAt(0).toUpperCase() + order.payment.slice(1).replace('-', ' ')}</p>
+                            <p class="font-bold">$${order.total.toFixed(2)}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold mb-2">Items</h4>
+                        <div class="space-y-2">
+                            ${order.items.map(item => `
+                                <div class="flex justify-between">
+                                    <span>${item.name} (${item.quantity})</span>
+                                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end space-x-2">
+                        <select onchange="updateOrderStatus('${order.id}', this.value)" 
+                            class="border rounded px-3 py-1">
+                            <option value="Pending" ${order.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                            <option value="Shipped" ${order.status === 'Shipped' ? 'selected' : ''}>Shipped</option>
+                            <option value="Delivered" ${order.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
+                        </select>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function updateOrderStatus(orderId, status) {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const order = orders.find(o => o.id === orderId);
+            if (order) {
+                order.status = status;
+                localStorage.setItem('orders', JSON.stringify(orders));
+                loadOrders();
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuth();
+            document.getElementById('username').textContent = localStorage.getItem('username') || 'Employee';
+            loadOrders();
+        });
+    </script>
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen">
+        <div class="bg-white shadow-sm">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <h1 class="text-xl font-bold">Employee Dashboard</h1>
+                <div class="flex items-center">
+                    <span class="mr-4"><i class="fas fa-user mr-1"></i> <span id="username"></span></span>
+                    <button onclick="logout()" class="text-red-600 hover:text-red-800">
+                        <i class="fas fa-sign-out-alt mr-1"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-6 py-8">
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl font-bold">Order Management</h2>
+                    <div class="flex space-x-2">
+                        <select id="status-filter" onchange="loadOrders()" class="border rounded px-3 py-1">
+                            <option value="all">All Orders</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Shipped">Shipped</option>
+                            <option value="Delivered">Delivered</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="orders-container">
+                <!-- Orders will be loaded here -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
