@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - MedComfy Supply Haven</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderId = urlParams.get('orderId');
+            
+            if (!orderId) {
+                window.location.href = 'index.html';
+                return;
+            }
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const cartCount = document.getElementById('cart-count');
+            cartCount.textContent = 0; // Reset cart count after order
+const order = orders.find(o => o.id === orderId);
+            
+            if (!order) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            document.getElementById('order-id').textContent = order.id;
+            document.getElementById('order-date').textContent = new Date(order.date).toLocaleDateString();
+            document.getElementById('order-total').textContent = `$${order.total.toFixed(2)}`;
+            
+            // Update order items
+            const orderItemsContainer = document.getElementById('order-items');
+            orderItemsContainer.innerHTML = order.items.map(item => `
+                <div class="flex items-center py-4 border-b">
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded">
+                    <div class="ml-4 flex-1">
+                        <h3 class="font-medium">${item.name}</h3>
+                        <p class="text-gray-600">${item.quantity} × $${item.price.toFixed(2)}</p>
+                    </div>
+                    <p class="font-medium">$${(item.price * item.quantity).toFixed(2)}</p>
+                </div>
+            `).join('');
+            
+            // Update shipping info
+            document.getElementById('shipping-name').textContent = order.customer.name;
+            document.getElementById('shipping-email').textContent = order.customer.email;
+            document.getElementById('shipping-address').textContent = order.customer.address;
+            document.getElementById('payment-method').textContent = order.payment.charAt(0).toUpperCase() + order.payment.slice(1).replace('-', ' ');
+        });
+    </script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">MedComfy</a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="products.html" class="text-gray-600 hover:text-blue-600">Products</a>
+                    <a href="about.html" class="text-gray-600 hover:text-blue-600">About</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <a href="cart.html" class="text-gray-600 hover:text-blue-600 relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="bg-blue-600 text-white p-6 text-center">
+                <i class="fas fa-check-circle text-5xl mb-4"></i>
+                <h1 class="text-3xl font-bold mb-2">Order Confirmed!</h1>
+                <p class="text-xl">Thank you for your purchase</p>
+            </div>
+            
+            <div class="p-6 md:p-8">
+                <div class="mb-8">
+                    <h2 class="text-xl font-bold mb-4">Order Details</h2>
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <p class="text-gray-600">Order Number</p>
+                            <p id="order-id" class="font-medium"></p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600">Date</p>
+                            <p id="order-date" class="font-medium"></p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600">Total</p>
+                            <p id="order-total" class="font-medium"></p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600">Payment Method</p>
+                            <p id="payment-method" class="font-medium"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h2 class="text-xl font-bold mb-4">Your Order</h2>
+                        <div id="order-items">
+                            <!-- Order items will be inserted here by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-xl font-bold mb-4">Shipping Information</h2>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <p id="shipping-name" class="font-medium mb-2"></p>
+                            <p id="shipping-email" class="mb-2"></p>
+                            <p id="shipping-address" class="mb-2"></p>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h2 class="text-xl font-bold mb-4">What's Next?</h2>
+                            <p class="mb-4">We've received your order and will process it shortly. You'll receive a confirmation email with tracking information once your order ships.</p>
+                            <a href="products.html" class="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+                                Continue Shopping
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MedComfy</h3>
+                    <p class="text-gray-400">Quality medical and comfort products for professionals.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white">Products</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 MedComfy Supply Haven. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
