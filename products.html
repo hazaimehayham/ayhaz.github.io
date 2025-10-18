@@ -24,7 +24,7 @@
                         <i class="fas fa-shopping-cart"></i>
                         <span id="cart-count" class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
                     </a>
-                </div>
+</div>
             </div>
         </div>
     </header>
@@ -35,14 +35,14 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Lab Coats -->
                 <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="Lab-Coat-570x570.jpg" alt="Professional Lab Coats" class="w-full h-64 object-cover">
+                    <img src="http://static.photos/medical/640x360/1" alt="Professional Lab Coats" class="w-full h-64 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Professional Lab Coats</h3>
                         <p class="text-gray-600 mb-4">High-quality, comfortable lab coats for medical professionals.</p>
                         <div class="flex justify-between items-center">
                             <span class="text-blue-600 font-bold">$49.99</span>
-                            <button onclick="addToCart('lab-coat', 'Professional Lab Coats', 15, 'Lab-Coat-570x570.jpg')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-                        </div>
+                        <button onclick="addToCart('lab-coat', 'Professional Lab Coats', 49.99, 'http://static.photos/medical/640x360/1')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
+</div>
                     </div>
                 </div>
 
@@ -54,8 +54,8 @@
                         <p class="text-gray-600 mb-4">Comfortable and durable scrubs for healthcare workers.</p>
                         <div class="flex justify-between items-center">
                             <span class="text-blue-600 font-bold">$39.99</span>
-                            <button onclick="addToCart('scrubs', 'Medical Scrubs', 15, 'http://static.photos/medical/640x360/2')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-                        </div>
+                            <button onclick="addToCart('scrubs', 'Medical Scrubs', 39.99, 'http://static.photos/medical/640x360/2')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
+</div>
                     </div>
                 </div>
 
@@ -67,8 +67,8 @@
                         <p class="text-gray-600 mb-4">High-quality wound care products for medical use.</p>
                         <div class="flex justify-between items-center">
                             <span class="text-blue-600 font-bold">$12.99</span>
-                            <button onclick="addToCart('bandages', 'Bandages & Gauze', 15, 'http://static.photos/medical/640x360/3')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-                        </div>
+                            <button onclick="addToCart('bandages', 'Bandages & Gauze', 12.99, 'http://static.photos/medical/640x360/3')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
+</div>
                     </div>
                 </div>
             </div>
@@ -85,8 +85,8 @@
                         <p class="text-gray-600 mb-4">Orthopedic support for better sleep and posture.</p>
                         <div class="flex justify-between items-center">
                             <span class="text-blue-600 font-bold">$59.99</span>
-                            <button onclick="addToCart('memory-pillow', 'Memory Foam Pillow', 15, 'http://static.photos/medical/640x360/4')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-                        </div>
+                            <button onclick="addToCart('memory-pillow', 'Memory Foam Pillow', 59.99, 'http://static.photos/medical/640x360/4')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
+</div>
                     </div>
                 </div>
 
@@ -98,8 +98,8 @@
                         <p class="text-gray-600 mb-4">Ergonomic design for neck and back support.</p>
                         <div class="flex justify-between items-center">
                             <span class="text-blue-600 font-bold">$49.99</span>
-                            <button onclick="addToCart('contour-pillow', 'Contour Pillow', 15, 'http://static.photos/medical/640x360/5')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-                        </div>
+                            <button onclick="addToCart('contour-pillow', 'Contour Pillow', 49.99, 'http://static.photos/medical/640x360/5')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
+</div>
                     </div>
                 </div>
 
@@ -111,18 +111,17 @@
                         <p class="text-gray-600 mb-4">Comfortable support for arms during procedures.</p>
                         <div class="flex justify-between items-center">
                             <span class="text-blue-600 font-bold">$29.99</span>
-                            <button onclick="addToCart('arm-rest', 'Memory Foam Arm Rest', 15, 'http://static.photos/medical/640x360/6')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-                        </div>
+                            <button onclick="addToCart('arm-rest', 'Memory Foam Arm Rest', 29.99, 'http://static.photos/medical/640x360/6')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
+</div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
     <script>
         // Product data
         const products = {
-            'lab-coat': { id: 'lab-coat', name: 'Professional Lab Coats', price: 49.99, image: 'Lab-Coat-570x570.jpg' },
+            'lab-coat': { id: 'lab-coat', name: 'Professional Lab Coats', price: 49.99, image: 'http://static.photos/medical/640x360/1' },
             'scrubs': { id: 'scrubs', name: 'Medical Scrubs', price: 39.99, image: 'http://static.photos/medical/640x360/2' },
             'bandages': { id: 'bandages', name: 'Bandages & Gauze', price: 12.99, image: 'http://static.photos/medical/640x360/3' },
             'memory-pillow': { id: 'memory-pillow', name: 'Memory Foam Pillow', price: 59.99, image: 'http://static.photos/medical/640x360/4' },
@@ -135,4 +134,61 @@
             const existingItem = cartItems.find(item => item.id === id);
             
             if (existingItem) {
-                existingItem
+                existingItem.quantity += 1;
+            } else {
+                cartItems.push({ id, name, price, image, quantity: 1 });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            updateCartCount();
+            alert(`${name} added to cart!`);
+        }
+
+        function updateCartCount() {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCount = document.getElementById('cart-count');
+            cartCount.textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        // Update cart count on page load
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+    </script>
+<footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MedComfy</h3>
+                    <p class="text-gray-400">Quality medical and comfort products for professionals.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Lab Coats</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Scrubs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Bandages</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 MedComfy Supply Haven. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
